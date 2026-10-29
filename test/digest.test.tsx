@@ -1,7 +1,7 @@
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { createApp } from '../src/app.js';
 
 describe('digest page', () => {
@@ -9,11 +9,12 @@ describe('digest page', () => {
 
   beforeEach(() => {
     runsDir = mkdtempSync(join(tmpdir(), 'rig-digest-'));
-    process.env.LANE_MARKER = 'TEST-MARKER';
+    vi.stubEnv('LANE_MARKER', 'TEST-MARKER');
   });
 
   afterEach(() => {
     rmSync(runsDir, { recursive: true, force: true });
+    vi.unstubAllEnvs();
   });
 
   it('renders all fields, raw offsets, warning marks, and the lane banner', async () => {
