@@ -1,8 +1,9 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-10-29
 ---
 
 # Morning digest
@@ -77,3 +78,28 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Issues
+
+| # | Issue | Worker | Completed |
+|---|-------|--------|-----------|
+| [1](https://github.com/belfz/mega-s01e04-before-i-looked/issues/1) | Run log reader | Codex · gpt-6.1-sol · default (not exposed) | 2026-10-29 |
+| [2](https://github.com/belfz/mega-s01e04-before-i-looked/issues/2) | Digest page | Codex · gpt-5.6-luna · medium | 2026-10-29 |
+| [3](https://github.com/belfz/mega-s01e04-before-i-looked/issues/3) | Digest JSON | Codex · gpt-5.6-luna · medium | 2026-10-29 |
+| [4](https://github.com/belfz/mega-s01e04-before-i-looked/issues/4) | Board links | Codex · gpt-5.6-luna · medium | 2026-10-29 |
+| [5](https://github.com/belfz/mega-s01e04-before-i-looked/issues/5) | Route tests | Codex · gpt-5.6-luna · medium | 2026-10-29 |
+| [6](https://github.com/belfz/mega-s01e04-before-i-looked/issues/6) | Preview and review | Codex · gpt-6.1-sol · default (not exposed) | 2026-10-29 |
+| [7](https://github.com/belfz/mega-s01e04-before-i-looked/issues/7) | Marker cleanup and plan archive | Codex · gpt-6.1-sol · default (not exposed) | 2026-10-29 |
+
+## Review and cleanup
+
+Public preview: https://mega-s01e04-before-i-looked.pages.dev/
+
+Issue #6 was initially closed before the reviewer looked. The course rejected
+that closure. It was reopened and closed again only after the reviewer confirmed
+seeing the preview. This history remains in the issue tracker.
+
+After separate human approval, the page was saved without loading `.env` and with
+`LANE_MARKER` unset. The clean HTML replaced the same public link. A public fetch
+returned HTTP 200 and exactly matched the local clean export; the only content
+change was the marker becoming `no marker set`. No preview was committed.
